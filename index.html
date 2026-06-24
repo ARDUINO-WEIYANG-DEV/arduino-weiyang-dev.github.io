@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arduino Weiyang Dev - International Tutorials</title>
+    <style>
+        /* 蓝系渐变背景 深蓝 → 浅蓝 */
+        body {
+            margin: 0;
+            padding: 50px;
+            min-height: 100vh;
+            background: linear-gradient(#0a2463, #3e92cc, #74b9ff);
+            color: #ffffff;
+            font-family: Arial, sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* 流星样式 + 下落动画 */
+        .shooting-star {
+            position: fixed;
+            width: 2px;
+            height: 80px;
+            background: linear-gradient(to bottom, rgba(255,255,255,0), #ffffff);
+            top: 0;
+            animation: fall linear infinite;
+            opacity: 0;
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(0) translateX(0) rotate(45deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) translateX(100px) rotate(45deg);
+                opacity: 0;
+            }
+        }
+
+        h1 {
+            font-size: 36px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 18px;
+            line-height: 1.8;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 40px;
+        }
+
+        /* 开发板展示区域 */
+        .board-container {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            margin-top: 60px;
+        }
+
+        .board-card {
+            background: rgba(255, 255, 255, 0.12);
+            border-radius: 15px;
+            padding: 20px;
+            backdrop-filter: blur(6px);
+            transition: transform 0.3s ease;
+        }
+
+        .board-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .board-card img {
+            max-width: 200px;
+            height: auto;
+            display: block;
+            /* 图片白底已抠除，透明显示 */
+            background: transparent;
+        }
+
+        .board-name {
+            text-align: center;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <!-- 流星组 -->
+    <div class="shooting-star" style="left: 10%; animation-duration: 7s; animation-delay: 0s;"></div>
+    <div class="shooting-star" style="left: 30%; animation-duration: 5s; animation-delay: 2s;"></div>
+    <div class="shooting-star" style="left: 50%; animation-duration: 6s; animation-delay: 4s;"></div>
+    <div class="shooting-star" style="left: 70%; animation-duration: 8s; animation-delay: 1s;"></div>
+    <div class="shooting-star" style="left: 90%; animation-duration: 4s; animation-delay: 3s;"></div>
+
+    <h1>Welcome to Arduino Weiyang Dev!</h1>
+    <p>This is your go-to place for Arduino UNO tutorials, projects, and maker discussions. Start learning, start making!</p >
+
+    <!-- 三块开发板（透明底） -->
+    <div class="board-container">
+        <div class="board-card">
+            < img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Arduino_Uno_Rev3.jpg/800px-Arduino_Uno_Rev3.jpg" alt="Arduino UNO">
+            <div class="board-name">Arduino UNO R3</div>
+        </div>
+        <div class="board-card">
+            < img src="https://www.espressif.com/sites/default/files/esp32_devkitc_1.png" alt="ESP32">
+            <div class="board-name">ESP32</div>
+        </div>
+        <div class="board-card">
+            < img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/ESP8266_NodeMCU_v1.0.png/800px-ESP8266_NodeMCU_v1.0.png" alt="ESP8266">
+            <div class="board-name">ESP8266 NodeMCU</div>
+        </div>
+    </div>
+</body>
+</html>
