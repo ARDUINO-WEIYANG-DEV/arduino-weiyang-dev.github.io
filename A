@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arduino Weiyang Dev - International Tutorials</title>
+    <style>
+        /* 全局渐变背景：深蓝 过渡到 浅蓝 */
+        body {
+            margin: 0;
+            padding: 50px;
+            min-height: 100vh;
+            background: linear-gradient(#0a2463, #74b9ff);
+            color: #ffffff;
+            font-family: Arial, sans-serif;
+        }
+        h1 {
+            font-size: 36px;
+        }
+        p {
+            font-size: 18px;
+            line-height: 1.8;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to Arduino Weiyang Dev!</h1>
+    <p>This is your go-to place for Arduino UNO tutorials, projects, and maker discussions.</p >
+    <p>Start learning, start making!</p >
+</body>
+</html>
