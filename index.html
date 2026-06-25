@@ -5,8 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Endless Uses of Arduino</title>
     <meta name="description" content="Tutorials, project cases and creative ideas for Arduino, ESP32 and ESP8266. Community discussion and useful links collection.">
-
-    <!-- 已替换为你的用户名 -->
     <link rel="canonical" href="https://arduino-weiyang-dev.github.io/">
 
     <style>
@@ -159,7 +157,6 @@
             font-size: 24px;
             margin-bottom: 10px;
         }
-        /* 为代码块添加样式 */
         .project-item pre {
             background: rgba(0,0,0,0.4);
             padding: 15px;
@@ -189,12 +186,11 @@
     <div class="shooting-star" style="left:70%;animation-duration:8s;animation-delay:1s;"></div>
     <div class="shooting-star" style="left:90%;animation-duration:4s;animation-delay:3s;"></div>
 
-    <!-- 翻页按钮 -->
     <button class="switch-btn prev-btn">&lt;</button>
     <button class="switch-btn next-btn">&gt;</button>
 
     <div class="page-container">
-        <!-- 第一页 -->
+        <!-- ========== 第一页 ========== -->
         <div class="page active" data-page="1">
             <h1>Endless Uses of Arduino</h1>
             <p class="text-desc">Arduino, ESP32, ESP8266 Tutorials, Projects & Creative Ideas</p>
@@ -228,20 +224,18 @@
                 </ul>
             </div>
 
-            <!-- ========== 作品展示区域 ========== -->
             <div class="work-section">
                 <h2>Featured Projects</h2>
 
-                <!-- 项目1：智能浇水（保持不变） -->
+                <!-- 项目1 -->
                 <div class="project-item">
                     <h3>Smart Plant Watering System</h3>
                     <p>Use an Arduino UNO with a soil moisture sensor and a small water pump to automatically water your plants when the soil gets dry. This project is perfect for beginners and helps you understand analog readings and motor control.</p>
                 </div>
 
-                <!-- ====== 项目2：温湿度检测仪（已添加详细英文内容） ====== -->
+                <!-- 项目2：温湿度检测仪（完整内容） -->
                 <div class="project-item">
                     <h3>温湿度检测仪</h3>
-                    <!-- 以下为用户提供的英文描述，完整保留 -->
                     <p>Using an Arduino Uno with a DHT11 and an OLED display to build a temperature‑and‑humidity monitor is not complicated. The core idea is simple: let the Arduino read data from the DHT11 sensor and send it to the OLED screen via the I²C protocol for display.</p>
 
                     <h4>1. Hardware Connections</h4>
@@ -352,16 +346,15 @@ void loop() {
                     <p>Happy building! 😊</p>
                 </div>
 
-                <!-- 项目3：灯光控制（保持不变） -->
+                <!-- 项目3 -->
                 <div class="project-item">
                     <h3>ESP8266 Home Light Controller</h3>
                     <p>Control your home lights via a web interface or smartphone app using an ESP8266 and relays. Learn about MQTT, HTTP requests, and how to build a simple home automation system that runs locally or over the internet.</p>
                 </div>
-
             </div>
         </div>
 
-        <!-- 第二页 -->
+        <!-- ========== 第二页 ========== -->
         <div class="page" data-page="2">
             <h1>Community Discussion</h1>
             <p class="tip-text">Everyone can post, reply and share ideas freely</p>
@@ -377,12 +370,20 @@ void loop() {
                 <h3>Future Plans</h3>
                 <p>Upcoming content and project schedules</p>
             </div>
+
+            <!-- ===== 评论区域（已改为 Utterances，无需ID） ===== -->
             <div class="comment-wrap">
-                <!-- 在这里粘贴 Giscus 评论代码 -->
+                <script src="https://utteranc.es/client.js"
+                    repo="arduino-weiyang-dev/arduino-weiyang-dev.github.io"
+                    issue-term="pathname"
+                    theme="github-dark"
+                    crossorigin="anonymous"
+                    async>
+                </script>
             </div>
         </div>
 
-        <!-- 第三页 -->
+        <!-- ========== 第三页 ========== -->
         <div class="page" data-page="3">
             <h1>Useful Links</h1>
             <p class="text-desc">Official documents, tools and community resources</p>
@@ -390,7 +391,6 @@ void loop() {
             <div class="link-card">
                 <a href="https://www.arduino.cc/en/software" target="_blank">Arduino IDE</a>
             </div>
-
             <div class="link-card">
                 <a href="https://cpp.code.94cto.com/index/index/content/id/138644" target="_blank">Ardubook OS</a>
             </div>
@@ -417,7 +417,6 @@ void loop() {
             current = (current + 1) % total;
             switchPage(current);
         });
-<a href=“https://hits.sh/arduino-weiyang-dev.github.io/”><img alt=“Hits” src=“https://hits.sh/arduino-weiyang-dev.github.io.svg”/></a>
     </script>
 </body>
 </html>
