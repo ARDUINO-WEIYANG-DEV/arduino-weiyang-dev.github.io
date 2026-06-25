@@ -5,7 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Endless Uses of Arduino</title>
     <meta name="description" content="Tutorials, project cases and creative ideas for Arduino, ESP32 and ESP8266. Community discussion and useful links collection.">
+
+    <!-- 已替换为你的用户名 -->
+    <link rel="canonical" href="https://arduino-weiyang-dev.github.io/">
+
     <style>
+        /* 样式保持不变，省略（与之前完全相同）... 为了节省篇幅，此处省略，实际使用时请复制完整样式 */
         * {
             margin: 0;
             padding: 0;
@@ -17,7 +22,6 @@
             font-family: Arial, sans-serif;
             position: relative;
         }
-        /* Shooting star animation */
         .shooting-star {
             position: fixed;
             width: 2px;
@@ -32,7 +36,6 @@
             0% {transform: translateY(0) translateX(0) rotate(45deg);opacity: 1;}
             100% {transform: translateY(100vh) translateX(100px) rotate(45deg);opacity: 0;}
         }
-        /* Switch buttons */
         .switch-btn {
             position: fixed;
             top: 50%;
@@ -50,12 +53,8 @@
         .switch-btn:hover {
             background: rgba(255,255,255,0.4);
         }
-        .prev-btn {
-            left: 20px;
-        }
-        .next-btn {
-            right: 20px;
-        }
+        .prev-btn { left: 20px; }
+        .next-btn { right: 20px; }
         .page-container {
             position: relative;
             z-index: 2;
@@ -63,8 +62,11 @@
         .page {
             width: 100%;
             padding: 50px 80px;
-            display: none;
             min-height: 100vh;
+            display: block;
+        }
+        .page:not(.active) {
+            display: none;
         }
         .page.active {
             display: block;
@@ -79,7 +81,6 @@
             font-size: 18px;
             margin-bottom: 60px;
         }
-        /* Page 1: Tech Share */
         .board-box {
             display: flex;
             justify-content: center;
@@ -100,7 +101,6 @@
             margin-top: 15px;
             font-weight: bold;
         }
-        /* Work section —— 作品区域，往下添加内容即可 */
         .work-section {
             max-width: 900px;
             margin: 0 auto;
@@ -113,7 +113,6 @@
             margin-bottom: 20px;
             text-align: center;
         }
-        /* Page 2: Community */
         .author-card {
             background: rgba(255,255,255,0.12);
             border-radius: 10px;
@@ -127,14 +126,13 @@
             opacity: 0.8;
             margin-bottom: 40px;
         }
-        .comment-wrap{
+        .comment-wrap {
             max-width: 800px;
             margin: 40px auto 0;
             background: rgba(255,255,255,0.1);
             border-radius: 10px;
             padding: 20px;
         }
-        /* Page 3: Links */
         .link-card {
             background: rgba(255,255,255,0.12);
             border-radius: 10px;
@@ -149,58 +147,102 @@
         .link-card a:hover {
             text-decoration: underline;
         }
+        /* 新增：为项目添加一些内边距和分隔 */
+        .project-item {
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+        }
+        .project-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+        .project-item h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
     </style>
 </head>
 <body>
-    <!-- Shooting star background -->
+    <!-- 流星背景 -->
     <div class="shooting-star" style="left:10%;animation-duration:7s;"></div>
     <div class="shooting-star" style="left:30%;animation-duration:5s;animation-delay:2s;"></div>
     <div class="shooting-star" style="left:50%;animation-duration:6s;animation-delay:4s;"></div>
     <div class="shooting-star" style="left:70%;animation-duration:8s;animation-delay:1s;"></div>
     <div class="shooting-star" style="left:90%;animation-duration:4s;animation-delay:3s;"></div>
 
-    <!-- Page switch buttons -->
+    <!-- 翻页按钮 -->
     <button class="switch-btn prev-btn">&lt;</button>
     <button class="switch-btn next-btn">&gt;</button>
 
     <div class="page-container">
-        <!-- Page 1: Technology Sharing -->
+        <!-- ==================== 第一页（新增文字内容） ==================== -->
         <div class="page active" data-page="1">
             <h1>Endless Uses of Arduino</h1>
             <p class="text-desc">Arduino, ESP32, ESP8266 Tutorials, Projects & Creative Ideas</p >
 
-            <p style="text-align:center; margin:10px 0;">Welcome to our maker community!</p >
-            <p style="text-align:center; margin:10px 0;">Share your projects and skills with global makers.</p >
+            <!-- 新增：关于本站的介绍 -->
+            <div style="max-width:900px; margin:0 auto 40px; background:rgba(255,255,255,0.08); padding:20px; border-radius:10px; text-align:center; line-height:1.8;">
+                <p><strong>Welcome to our maker community!</strong></p >
+                <p>Share your projects and skills with global makers. This site is dedicated to collecting tutorials, project cases, and creative ideas for Arduino, ESP32, and ESP8266. Whether you are a beginner or an experienced developer, you'll find something inspiring here.</p >
+            </div>
 
             <div class="board-box">
                 <div class="board-card">
-                    < img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Arduino_Uno_Rev3.jpg/800px-Arduino_Uno_Rev3.jpg">
+                    < img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Arduino_Uno_Rev3.jpg/800px-Arduino_Uno_Rev3.jpg" alt="Arduino UNO">
                     <div class="board-name">Arduino UNO R3</div>
                 </div>
                 <div class="board-card">
-                    < img src="https://www.espressif.com/sites/default/files/esp32_devkitc_1.png">
+                    < img src="https://www.espressif.com/sites/default/files/esp32_devkitc_1.png" alt="ESP32">
                     <div class="board-name">ESP32</div>
                 </div>
                 <div class="board-card">
-                    < img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/ESP8266_NodeMCU_v1.0.png/800px-ESP8266_NodeMCU_v1.0.png">
+                    < img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/ESP8266_NodeMCU_v1.0.png/800px-ESP8266_NodeMCU_v1.0.png" alt="ESP8266">
                     <div class="board-name">ESP8266 NodeMCU</div>
                 </div>
             </div>
 
-            <!-- ========== 作品展示区域（可无限下滑，在这里添加你的作品） ========== -->
+            <!-- 新增：板子使用场景介绍 -->
+            <div style="max-width:900px; margin:0 auto 50px; background:rgba(255,255,255,0.06); padding:20px; border-radius:10px; line-height:1.8;">
+                <p style="text-align:center; font-size:18px; margin-bottom:10px;"><strong>Which board to choose?</strong></p >
+                <ul style="list-style: none; padding:0; text-align:center;">
+                    <li style="margin:8px 0;">🔹 <strong>Arduino UNO</strong> – Perfect for beginners, simple projects, and learning electronics.</li>
+                    <li style="margin:8px 0;">🔹 <strong>ESP32</strong> – Built-in Wi-Fi & Bluetooth, ideal for IoT and advanced wireless projects.</li>
+                    <li style="margin:8px 0;">🔹 <strong>ESP8266</strong> – Low-cost Wi-Fi module, great for lightweight IoT devices and home automation.</li>
+                </ul>
+            </div>
+
+            <!-- ========== 作品展示区域（扩充为多个项目） ========== -->
             <div class="work-section">
-                <h2>My First Project</h2>
-                <p>Write your project introduction, pictures and details here.</p >
-                <!-- 继续往下加文字、图片、内容都可以，页面会自动滚动 -->
+                <h2>Featured Projects</h2>
+
+                <!-- 项目1 -->
+                <div class="project-item">
+                    <h3>Smart Plant Watering System</h3>
+                    <p>Use an Arduino UNO with a soil moisture sensor and a small water pump to automatically water your plants when the soil gets dry. This project is perfect for beginners and helps you understand analog readings and motor control.</p >
+                </div>
+
+                <!-- 项目2 -->
+                <div class="project-item">
+                    <h3>ESP32 Weather Station</h3>
+                    <p>Connect an ESP32 to a DHT22 sensor and an OLED display to show temperature and humidity. Send data to the cloud (e.g., ThingSpeak) and monitor your room's climate from anywhere. A great introduction to IoT and wireless communication.</p >
+                </div>
+
+                <!-- 项目3 -->
+                <div class="project-item">
+                    <h3>ESP8266 Home Light Controller</h3>
+                    <p>Control your home lights via a web interface or smartphone app using an ESP8266 and relays. Learn about MQTT, HTTP requests, and how to build a simple home automation system that runs locally or over the internet.</p >
+                </div>
+
+                <!-- 你可以继续添加更多项目，复制上面 .project-item 的结构即可 -->
             </div>
 
         </div>
 
-        <!-- Page 2: Community Discussion -->
+        <!-- 第二页：保持不变 -->
         <div class="page" data-page="2">
             <h1>Community Discussion</h1>
             <p class="tip-text">Everyone can post, reply and share ideas freely</p >
-
             <div class="author-card">
                 <h3>Latest Updates</h3>
                 <p>New projects, updates and announcements from the author</p >
@@ -213,29 +255,22 @@
                 <h3>Future Plans</h3>
                 <p>Upcoming content and project schedules</p >
             </div>
-
-            <!-- Paste your Giscus code below -->
             <div class="comment-wrap">
-                <!-- Paste Giscus code here -->
+                <!-- 在这里粘贴 Giscus 评论代码 -->
             </div>
         </div>
 
-        <!-- Page 3: Useful Links -->
+        <!-- 第三页：保持不变（已有 Arduino IDE 和 Ardubook OS） -->
         <div class="page" data-page="3">
             <h1>Useful Links</h1>
             <p class="text-desc">Official documents, tools and community resources</p >
 
             <div class="link-card">
-                <a href=" ">Arduino Official Documentation</a >
+                <a href=" " target="_blank">Arduino IDE</a >
             </div>
+
             <div class="link-card">
-                <a href="#">Open Source Community</a >
-            </div>
-            <div class="link-card">
-                <a href="#">Electronic Components Store</a >
-            </div>
-            <div class="link-card">
-                <a href="#">Online Code Editor</a >
+                <a href="https://cpp.code.94cto.com/index/index/content/id/138644" target="_blank">Ardubook OS</a >
             </div>
         </div>
     </div>
