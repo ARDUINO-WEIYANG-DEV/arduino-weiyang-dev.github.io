@@ -8,8 +8,174 @@
     <link rel="canonical" href="https://arduino-weiyang-dev.github.io/">
 
     <style>
-        /* ... 此处省略样式（与之前完全相同，确保复制完整） ... */
-        /* 为节省篇幅，实际使用时请复制完整样式 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background: linear-gradient(#0a2463, #74b9ff);
+            color: #fff;
+            font-family: Arial, sans-serif;
+            position: relative;
+        }
+        .shooting-star {
+            position: fixed;
+            width: 2px;
+            height: 80px;
+            background: linear-gradient(to bottom, transparent, #fff);
+            top: 0;
+            animation: fall linear infinite;
+            opacity: 0;
+            z-index: 1;
+        }
+        @keyframes fall {
+            0% {transform: translateY(0) translateX(0) rotate(45deg);opacity: 1;}
+            100% {transform: translateY(100vh) translateX(100px) rotate(45deg);opacity: 0;}
+        }
+        .switch-btn {
+            position: fixed;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 50px;
+            height: 50px;
+            background: rgba(255,255,255,0.2);
+            border: none;
+            color: #fff;
+            font-size: 24px;
+            border-radius: 50%;
+            cursor: pointer;
+            z-index: 10;
+        }
+        .switch-btn:hover {
+            background: rgba(255,255,255,0.4);
+        }
+        .prev-btn { left: 20px; }
+        .next-btn { right: 20px; }
+        .page-container {
+            position: relative;
+            z-index: 2;
+        }
+        .page {
+            width: 100%;
+            padding: 50px 80px;
+            min-height: 100vh;
+            display: block;
+        }
+        .page:not(.active) {
+            display: none;
+        }
+        .page.active {
+            display: block;
+        }
+        h1 {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 30px;
+        }
+        .text-desc {
+            text-align: center;
+            font-size: 18px;
+            margin-bottom: 60px;
+        }
+        .board-box {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            margin-bottom: 80px;
+        }
+        .board-card {
+            background: rgba(255,255,255,0.12);
+            border-radius: 15px;
+            padding: 20px;
+        }
+        .board-card img {
+            max-width: 200px;
+        }
+        .board-name {
+            text-align: center;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+        .work-section {
+            max-width: 900px;
+            margin: 0 auto;
+            background: rgba(255,255,255,0.1);
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 50px;
+        }
+        .work-section h2 {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .author-card {
+            background: rgba(255,255,255,0.12);
+            border-radius: 10px;
+            padding: 18px 25px;
+            margin: 20px auto;
+            max-width: 800px;
+        }
+        .tip-text {
+            text-align: center;
+            font-size: 16px;
+            opacity: 0.8;
+            margin-bottom: 40px;
+        }
+        .comment-wrap {
+            max-width: 800px;
+            margin: 40px auto 0;
+            background: rgba(255,255,255,0.1);
+            border-radius: 10px;
+            padding: 20px;
+        }
+        .link-card {
+            background: rgba(255,255,255,0.12);
+            border-radius: 10px;
+            padding: 18px 25px;
+            margin: 20px auto;
+            max-width: 800px;
+        }
+        .link-card a {
+            color: #fff;
+            text-decoration: none;
+        }
+        .link-card a:hover {
+            text-decoration: underline;
+        }
+        .project-item {
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+        }
+        .project-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+        .project-item h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        .project-item pre {
+            background: rgba(0,0,0,0.4);
+            padding: 15px;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-size: 14px;
+            line-height: 1.5;
+            color: #e0e0e0;
+        }
+        .project-item code {
+            font-family: Consolas, monospace;
+        }
+        .project-item ul, .project-item ol {
+            padding-left: 20px;
+            margin: 10px 0;
+        }
+        .project-item li {
+            margin: 5px 0;
+        }
     </style>
 </head>
 <body>
@@ -24,13 +190,171 @@
     <button class="switch-btn next-btn">&gt;</button>
 
     <div class="page-container">
-        <!-- 第一页 -->
+        <!-- ========== 第一页 ========== -->
         <div class="page active" data-page="1">
             <h1>Endless Uses of Arduino</h1>
             <p class="text-desc">Arduino, ESP32, ESP8266 Tutorials, Projects & Creative Ideas</p>
-            <!-- ... 内容不变 ... -->
+
+            <div style="max-width:900px; margin:0 auto 40px; background:rgba(255,255,255,0.08); padding:20px; border-radius:10px; text-align:center; line-height:1.8;">
+                <p><strong>Welcome to our maker community!</strong></p>
+                <p>Share your projects and skills with global makers. This site is dedicated to collecting tutorials, project cases, and creative ideas for Arduino, ESP32, and ESP8266. Whether you are a beginner or an experienced developer, you'll find something inspiring here.</p>
+            </div>
+
+            <div class="board-box">
+                <div class="board-card">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Arduino_Uno_Rev3.jpg/800px-Arduino_Uno_Rev3.jpg" alt="Arduino UNO">
+                    <div class="board-name">Arduino UNO R3</div>
+                </div>
+                <div class="board-card">
+                    <img src="https://www.espressif.com/sites/default/files/esp32_devkitc_1.png" alt="ESP32">
+                    <div class="board-name">ESP32</div>
+                </div>
+                <div class="board-card">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/ESP8266_NodeMCU_v1.0.png/800px-ESP8266_NodeMCU_v1.0.png" alt="ESP8266">
+                    <div class="board-name">ESP8266 NodeMCU</div>
+                </div>
+            </div>
+
+            <div style="max-width:900px; margin:0 auto 50px; background:rgba(255,255,255,0.06); padding:20px; border-radius:10px; line-height:1.8;">
+                <p style="text-align:center; font-size:18px; margin-bottom:10px;"><strong>Which board to choose?</strong></p>
+                <ul style="list-style: none; padding:0; text-align:center;">
+                    <li style="margin:8px 0;">🔹 <strong>Arduino UNO</strong> – Perfect for beginners, simple projects, and learning electronics.</li>
+                    <li style="margin:8px 0;">🔹 <strong>ESP32</strong> – Built-in Wi-Fi & Bluetooth, ideal for IoT and advanced wireless projects.</li>
+                    <li style="margin:8px 0;">🔹 <strong>ESP8266</strong> – Low-cost Wi-Fi module, great for lightweight IoT devices and home automation.</li>
+                </ul>
+            </div>
+
+            <div class="work-section">
+                <h2>Featured Projects</h2>
+
+                <!-- 项目1 -->
+                <div class="project-item">
+                    <h3>Smart Plant Watering System</h3>
+                    <p>Use an Arduino UNO with a soil moisture sensor and a small water pump to automatically water your plants when the soil gets dry. This project is perfect for beginners and helps you understand analog readings and motor control.</p>
+                </div>
+
+                <!-- 项目2：温湿度检测仪（完整内容） -->
+                <div class="project-item">
+                    <h3>温湿度检测仪</h3>
+                    <p>Using an Arduino Uno with a DHT11 and an OLED display to build a temperature‑and‑humidity monitor is not complicated. The core idea is simple: let the Arduino read data from the DHT11 sensor and send it to the OLED screen via the I²C protocol for display.</p>
+
+                    <h4>1. Hardware Connections</h4>
+                    <ul>
+                        <li><strong>DHT11 temperature & humidity sensor:</strong>
+                            <ul>
+                                <li>VCC → 5V (Arduino)</li>
+                                <li>GND → GND (Arduino)</li>
+                                <li>DATA → Digital pin 2 (Arduino)</li>
+                            </ul>
+                        </li>
+                        <li><strong>0.96″ OLED display (I²C interface):</strong>
+                            <ul>
+                                <li>VCC → 5V (Arduino)</li>
+                                <li>GND → GND (Arduino)</li>
+                                <li>SCL → A5 (Arduino)</li>
+                                <li>SDA → A4 (Arduino)</li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <h4>2. Software Preparation (Installing Libraries)</h4>
+                    <ol>
+                        <li>Open the Arduino IDE, go to Sketch → Include Library → Manage Libraries….</li>
+                        <li>Search for and install the following libraries:
+                            <ul>
+                                <li>Adafruit GFX Library</li>
+                                <li>Adafruit SSD1306</li>
+                                <li>DHT sensor library (usually provided by Adafruit)</li>
+                            </ul>
+                        </li>
+                    </ol>
+
+                    <h4>3. Example Code</h4>
+                    <p>Copy the code below into your IDE, make sure the board is set to Arduino Uno, select the correct port, and click Upload.</p>
+                    <pre><code>#include &lt;Wire.h&gt;
+#include &lt;Adafruit_GFX.h&gt;
+#include &lt;Adafruit_SSD1306.h&gt;
+#include &lt;DHT.h&gt;
+
+// ------- Configuration parameters --------
+#define DHTPIN 2          // Digital pin connected to DHT11 data
+#define DHTTYPE DHT11     // Sensor type
+
+#define SCREEN_WIDTH 128  // OLED width
+#define SCREEN_HEIGHT 64  // OLED height
+#define OLED_RESET -1     // Reset pin (not used for I2C, set to -1)
+#define OLED_ADDR 0x3C    // I2C address (most common is 0x3C)
+// ---------------------------------------
+
+DHT dht(DHTPIN, DHTTYPE);
+Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET);
+
+void setup() {
+  Serial.begin(9600);
+  
+  // Initialize DHT11
+  dht.begin();
+
+  // Initialize OLED
+  if(!display.begin(SSD1306_SWITCHCAPVCC, OLED_ADDR)) {
+    Serial.println(F("SSD1306 initialization failed!"));
+    for(;;); // Halt execution
+  }
+  
+  display.clearDisplay();
+  display.setTextSize(1);          // Set font size
+  display.setTextColor(SSD1306_WHITE);
+  display.display();
+}
+
+void loop() {
+  delay(2000); // Wait 2 seconds for sensor stabilisation
+
+  float h = dht.readHumidity();    // Read humidity
+  float t = dht.readTemperature(); // Read temperature (Celsius)
+
+  // Check if readings are valid
+  if (isnan(h) || isnan(t)) {
+    Serial.println(F("Sensor read failed!"));
+    return;
+  }
+
+  // ----- Display data on OLED -----
+  display.clearDisplay();
+
+  display.setCursor(0, 0);
+  display.print("Temperature: ");
+  display.print(t);
+  display.println(" C");
+
+  display.setCursor(0, 20);
+  display.print("Humidity: ");
+  display.print(h);
+  display.println(" %");
+
+  display.display(); // Update the screen
+  // --------------------------------
+}</code></pre>
+
+                    <h4>4. Notes and Further Enhancements</h4>
+                    <ul>
+                        <li><strong>Pull‑up resistor:</strong> Some DHT11 modules have it built in; if you buy a bare sensor, add a 10 kΩ resistor between VCC and DATA.</li>
+                        <li><strong>Read interval:</strong> It is recommended to wait at least 2 seconds between readings – querying too frequently may cause errors.</li>
+                        <li><strong>Power and enclosure:</strong> You can power the device via USB or a 9 V battery, and 3D‑print a case for a neat appearance.</li>
+                        <li><strong>Accuracy and expansion:</strong> For higher precision, consider upgrading to a DHT22. You can also add a Wi‑Fi module for remote monitoring, or attach a buzzer/LED for over‑temperature/humidity alerts.</li>
+                    </ul>
+                    <p>Happy building! 😊</p>
+                </div>
+
+                <!-- 项目3 -->
+                <div class="project-item">
+                    <h3>ESP8266 Home Light Controller</h3>
+                    <p>Control your home lights via a web interface or smartphone app using an ESP8266 and relays. Learn about MQTT, HTTP requests, and how to build a simple home automation system that runs locally or over the internet.</p>
+                </div>
+            </div>
         </div>
-        <!-- 第二页 -->
+
+        <!-- ========== 第二页 ========== -->
         <div class="page" data-page="2">
             <h1>Community Discussion</h1>
             <p class="tip-text">Everyone can post, reply and share ideas freely</p>
@@ -46,6 +370,8 @@
                 <h3>Future Plans</h3>
                 <p>Upcoming content and project schedules</p>
             </div>
+
+            <!-- ===== 评论区域（已改为 Utterances，无需ID） ===== -->
             <div class="comment-wrap">
                 <script src="https://utteranc.es/client.js"
                     repo="arduino-weiyang-dev/arduino-weiyang-dev.github.io"
@@ -56,10 +382,12 @@
                 </script>
             </div>
         </div>
-        <!-- 第三页 -->
+
+        <!-- ========== 第三页 ========== -->
         <div class="page" data-page="3">
             <h1>Useful Links</h1>
             <p class="text-desc">Official documents, tools and community resources</p>
+
             <div class="link-card">
                 <a href="https://www.arduino.cc/en/software" target="_blank">Arduino IDE</a>
             </div>
@@ -70,7 +398,6 @@
     </div>
 
     <script>
-        // ========== 翻页 JavaScript ==========
         const pages = document.querySelectorAll('.page');
         const prevBtn = document.querySelector('.prev-btn');
         const nextBtn = document.querySelector('.next-btn');
@@ -82,18 +409,14 @@
             pages[index].classList.add('active');
         }
 
-        prevBtn.addEventListener('click', function() {
+        prevBtn.addEventListener('click', () => {
             current = (current - 1 + total) % total;
             switchPage(current);
         });
-
-        nextBtn.addEventListener('click', function() {
+        nextBtn.addEventListener('click', () => {
             current = (current + 1) % total;
             switchPage(current);
         });
-
-        // 小提示：如果页面加载后按钮无效，检查控制台是否有错误
-        console.log('翻页脚本已加载，当前页索引：', current);
     </script>
 </body>
 </html>
